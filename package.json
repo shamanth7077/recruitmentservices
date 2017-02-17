@@ -1,0 +1,25 @@
+{
+  "name": "recruitment-portal",
+  "version": "1.0.0",
+  "description": "reqruitment portal server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "recruitment"
+  ],
+  "author": "kumar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "express-jwt": "^5.1.0",
+    "jsonwebtoken": "^7.3.0",
+    "moment": "^2.17.1",
+    "mssql": "^3.3.0",
+    "randomstring": "^1.1.5",
+    "yyyy-mm-dd": "^1.0.1"
+  }
+}
