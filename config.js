@@ -9,7 +9,8 @@ return {
   password: 'D1TDB@Hire',
   options: {
 	  encrypt: true,
-	  database: 'recruitmentDB'
+	  database: 'recruitmentDB',
+	  connectionTimeout: 50000,
   }
 };
 }

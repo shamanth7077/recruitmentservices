@@ -9,9 +9,10 @@ var app = express();
 
 logger.info('Inside App'+config.dbConfig());
 
-sql.connect(config.dbConfig(),function (err){
-  logger.error(err);
-  console.log(err);
+sql.connect(config.dbConfig()).then(function(){
+	logger.info('Connection Success!!');
+}).catch(function(err){
+	logger.info('Error in connection'+err);
 })
 
 routers.getRoutes(app);
