@@ -6,7 +6,11 @@ return {
   server: 'recruitmentserver.database.windows.net',
   database: 'recruitmentDB',
   user: 'ran',
-  password: 'D1TDB@Hire'
+  password: 'D1TDB@Hire',
+  port: '1433',
+  options: {
+      encrypt: true
+    }
 };
 }
 
