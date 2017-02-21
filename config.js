@@ -4,7 +4,7 @@ var config = require('./config.js');
 
 exports.dbConfig = function() {
 return {
-  server: 'tcp:recruitmentserver.database.windows.net',
+  server: 'recruitmentserver.database.windows.net,1433',
   database: 'recruitmentDB',
   user: 'ran@recruitmentserver',
   password: 'D1TDB@Hire',
