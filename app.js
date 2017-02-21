@@ -1,15 +1,14 @@
 var express = require('express');
-var sql = require('tedious').connection;
+var sql = require('mssql');
 var config = require('./config.js');
 var routers = require('./routes.js');
 var logger = require('./logger.js');
 
-var connection = new sql(config.dbConfig());
 
 var app = express();
 
 
-sql.on('connect',function (err){
+sql.connect(config.dbConfig(),function (err){
   logger.error(err);
   console.log(err);
 })

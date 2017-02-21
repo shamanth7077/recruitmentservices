@@ -1,11 +1,11 @@
-var sql = require('tedious').connection;
+var sql = require('mssql');
 var config = require('./config.js');
 
 
 exports.dbConfig = function() {
 return {
   server: 'recruitmentserver.database.windows.net',
-  userName: 'ran',
+  username: 'ran',
   password: 'D1TDB@Hire',
   options: {
 	  encrypt: true,
