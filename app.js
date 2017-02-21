@@ -7,6 +7,7 @@ var logger = require('./logger.js');
 
 var app = express();
 
+logger.info('Inside App'+config.dbConfig());
 
 sql.connect(config.dbConfig(),function (err){
   logger.error(err);
