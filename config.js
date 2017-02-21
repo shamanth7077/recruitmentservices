@@ -4,9 +4,9 @@ var config = require('./config.js');
 
 exports.dbConfig = function() {
 return {
-  server: 'recruitmentserver.database.windows.net,1433',
+  server: 'recruitmentserver.database.windows.net',
   database: 'recruitmentDB',
-  user: 'ran@recruitmentserver',
+  username: 'ran@recruitmentserver',
   password: 'D1TDB@Hire',
   options: {
 	  encrypt: true
