@@ -5,11 +5,11 @@ var config = require('./config.js');
 exports.dbConfig = function() {
 return {
   server: 'recruitmentserver.database.windows.net',
-  database: 'recruitmentDB',
-  username: 'ran',
+  userName: 'ran',
   password: 'D1TDB@Hire',
   options: {
-	  encrypt: true
+	  encrypt: true,
+	  database: 'recruitmentDB'
   }
 };
 }
