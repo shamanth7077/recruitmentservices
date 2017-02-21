@@ -5,12 +5,8 @@ exports.dbConfig = function() {
 return {
   server: 'recruitmentserver.database.windows.net',
   database: 'recruitmentDB',
-  username: 'ran',
-  password: 'D1TDB@Hire',
-  port: '1433',
-  options: {
-      encrypt: true
-    }      
+  user: 'ran',
+  password: 'D1TDB@Hire'
 };
 }
 
