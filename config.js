@@ -5,7 +5,7 @@ exports.dbConfig = function() {
 return {
   server: 'recruitmentserver.database.windows.net',
   database: 'recruitmentDB',
-  user: 'ran',
+  username: 'ran',
   password: 'D1TDB@Hire',
   port: '1433',
   options: {
