@@ -10,7 +10,7 @@ return {
   port: '1433',
   options: {
       encrypt: true
-    }
+    }      
 };
 }
 
