@@ -6,6 +6,7 @@ exports.getSkill = function(callback){
       request.query('SELECT ID, SKILL FROM SKILL', function(err,recordset){
         if(err != null){
           console.log(err);
+          callback(err);
         }
         else{
           callback(recordset);
