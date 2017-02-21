@@ -8,7 +8,8 @@ return {
   user: 'ran',
   password: 'D1TDB@Hire',
   options: {
-        encrypt: true
+        encrypt: true,
+		connectionTimeout: 30000
     }
 
 };
