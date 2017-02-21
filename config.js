@@ -6,7 +6,7 @@ exports.dbConfig = function() {
 return {
   server: 'recruitmentserver.database.windows.net',
   database: 'recruitmentDB',
-  user: 'ran',
+  user: 'ran@recruitmentserver',
   password: 'D1TDB@Hire'
 };
 }
