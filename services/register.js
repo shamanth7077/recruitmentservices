@@ -4,10 +4,13 @@ var config = require('../config.js');
 exports.getCandidateRegistered = function(emailId,callback){
       var ps = new sql.PreparedStatement();
       ps.input('email',sql.VarChar)
-      ps.prepare('select Email from Authentication where Email = @email',
+      ps.prepare('select Email from Candidate where Email = @email',
                   function(err){
                     ps.execute({email: emailId},
                             function(err,recordset){
+                              ps.unprepare(function(err) {
+
+                              });
                               if(err != null){
                                 console.log(err);
                               }
@@ -42,8 +45,11 @@ exports.getCandidateRegistered = function(emailId,callback){
                                     Registration_Date:date,
                                     Consultant_Name:body.Consultant_Name,
                                     Score:null,lscore:null,Status:1,
-                                    Resume:null},
+                                    Resume:body.Email},
                                 function(err,recordset,rowcount){
+                                  ps.unprepare(function(err) {
+
+                                  });
                                   if(err != null){
                                     console.log(err + '123');
                                   }
@@ -60,11 +66,14 @@ exports.getCandidateRegistered = function(emailId,callback){
           ps1.input('S_key',sql.VarChar)
           ps1.input('EmailId',sql.VarChar)
           ps1.input('AuthLvl',sql.Int)
-          ps1.input('key',sql.VarChar)
+          
           ps1.prepare('insert into Authentication values' +
-                      '(@EmailId,@S_key,@AuthLvl,@key)',
+                      '(@EmailId,@S_key,@AuthLvl)',
                     function(err){
-                      ps1.execute({S_key:key,EmailId:body.Email,AuthLvl:10,key:null}, function(err,recordset,rowcount){
+                      ps1.execute({S_key:key,EmailId:body.Email,AuthLvl:10}, function(err,recordset,rowcount){
+                        ps1.unprepare(function(err) {
+
+                        });
                         if(err != null){
                           console.log(err + '456');
                         }

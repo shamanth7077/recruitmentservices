@@ -3,8 +3,9 @@ var randomstring = require('randomstring');
 var yyyymmdd = require('yyyy-mm-dd');
 var bodyParser = require('body-parser');
 var moment = require('moment');
-
 var jsonParser = bodyParser.urlencoded({extended:true});
+var fileupload = require('express-fileupload');
+var mailer = require('../services/mailer');
 
 
 module.exports = function(app, candidaterouter){
@@ -22,7 +23,8 @@ module.exports = function(app, candidaterouter){
             if (success != 0){
               register.generateAuth(request.body,rand_key,function(done){
                 if(done != 0){
-                  response.status(200).json('Registration Done' + rand_key);
+                  mailer(request.body.Email,rand_key,'C',request.body.Name);
+                  response.status(200).json('Registration Done');
                 }
                 else{
                   response.status(500).json('Server Error');
@@ -40,6 +42,21 @@ module.exports = function(app, candidaterouter){
     });
   });
 
+  candidaterouter.use(fileupload());
+  candidaterouter.post('/upload',function(req,res){
+    if (!req.files)
+    return res.status(400).send('No files were uploaded.');
+      // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+      let sampleFile = req.files.resume;
+      console.log(req.files.resume);
+      console.log(req.files.resume.name);
+      console.log('../Resume/'+req.files.resume.name);
+      // Use the mv() method to place the file somewhere on your server
+      sampleFile.mv('Resume/'+req.files.resume.name, function(err) {
+        if (err)
+          return res.status(500).send(err);
 
-
+        res.send('File uploaded!');
+      });
+  });
 }

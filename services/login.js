@@ -9,30 +9,14 @@ ps.prepare('select Email, Password,Auth_Level from Authentication where Email = 
             function(err){
               ps.execute({email: body.Email},
                       function(err,recordset){
+                        ps.unprepare(function(err) {
+
+                        });
                         if(err != null){
                           console.log(err);
                         }
                         else {
                           callback(recordset);
-                        }
-                      })
-            });
-
-}
-exports.UpdateKey = function(body,key,callback){
-
-var ps = new sql.PreparedStatement();
-ps.input('email',sql.VarChar)
-ps.input('skey',sql.VarChar)
-ps.prepare('update Authentication Set Secret_Key = @skey where Email = @email',
-            function(err){
-              ps.execute({email: body.Email,skey:key},
-                      function(err,recordset,rowcount){
-                        if(err != null){
-                          console.log(err+'75567');
-                        }
-                        else {
-                          callback(rowcount);
                         }
                       })
             });

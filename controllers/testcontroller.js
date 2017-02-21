@@ -6,7 +6,6 @@ var jsonParser = bodyParser.urlencoded({extended:true});
 var simpleparser = bodyParser.json();
 
 module.exports = function(app,testrouter,id,pw){
-  console.log(id,pw);
     testrouter.get('/questionset', function(request,response){
 
     test.Validate(id,function(recordset,exp){
@@ -46,12 +45,10 @@ module.exports = function(app,testrouter,id,pw){
   });
 
   testrouter.post('/submit', simpleparser, function(request,response){
-    console.log('2');
-      submit.getCandidateId(id,pw, function(recordset,recordset1){
+    console.log(id,pw);
+      submit.getCandidateId(id, function(recordset){
         var ctr=0;
-        console.log(recordset1);
-        console.log(recordset1[0]);
-        if (recordset.length != 0 && recordset1[0].Password !=  null){
+        if (recordset.length != 0 && recordset[0].Status == 1){
           console.log(request.body.Answers.length);
           for(i=0;i<request.body.Answers.length;i++){
             var result = submit.submitAnswer(request.body.Answers[i],recordset);
@@ -69,7 +66,6 @@ module.exports = function(app,testrouter,id,pw){
                   else{response.json({Status:"Test not submitted1"});}
                 });
             }
-
           }
         }
         else{

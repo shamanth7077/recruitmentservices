@@ -9,14 +9,20 @@ ps.prepare('select Email, Password from Authentication where Email = @email',
             function(err){
               ps.execute({email: id},
                       function(err,recordset){
+                        ps.unprepare(function(err) {
+
+                        });
                         if(err != null){
                           console.log(err.message + ' Validate');
                         }
                         else {
                           var ps1 = new sql.PreparedStatement();
                           ps1.input('email',sql.VarChar)
-                          ps1.prepare('select Email,Experience,Skill from Candidate where Email = @email',function(err){
+                          ps1.prepare('select Email,Experience,Skill,Status from Candidate where Email = @email',function(err){
                             ps1.execute({email: id}, function(err,rec1){
+                              ps1.unprepare(function(err) {
+
+                              });
                               if(err != null){
                                 console.log(err.message + ' Validate');
                               }
@@ -39,6 +45,9 @@ exports.GetLevel = function(inRec,callback){
                     function(err){
                       ps.execute({Exp:inRec.Experience},
                           function(err,outRec){
+                            ps.unprepare(function(err) {
+
+                            });
                             if(err != null){
                               console.log(err.message + ' @Exp');
                             }
@@ -58,6 +67,9 @@ exports.GetQuestionSet = function(rec1,inRec,callback){
               function(err){
                 ps.execute({skill:rec1.Skill,level:inRec.ID},
                   function(err,finalrecord){
+                    ps.unprepare(function(err) {
+
+                    });
                     if(err != null){
                       console.log(err.message + 'Final');
                     }
