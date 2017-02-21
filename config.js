@@ -1,4 +1,4 @@
-var sql = require('mssql');
+var sql = require('tedious').connection;
 var config = require('./config.js');
 
 
