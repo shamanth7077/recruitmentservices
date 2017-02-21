@@ -4,10 +4,10 @@ var config = require('./config.js');
 
 exports.dbConfig = function() {
 return {
-  server: 'Y31247',
-  database: 'Recruitment',
-  user: 'TBIT_Recruitment',
-  password: 'Recruitment_TBIT'
+  server: 'tcp:recruitmentserver.database.windows.net',
+  database: 'recruitmentDB',
+  user: 'ran',
+  password: 'D1TDB@Hire'
 };
 }
 
