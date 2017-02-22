@@ -4,3 +4,13 @@
 {"level":"error","message":"","timestamp":"2017-02-21T09:04:34.568Z"}
 {"error":"this is test error","level":"error","message":"","timestamp":"2017-02-21T09:05:23.316Z"}
 {"level":"error","message":"this is test error","timestamp":"2017-02-21T09:17:29.571Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T10:27:42.037Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T10:27:43.743Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T10:27:56.416Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T10:27:57.182Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T10:29:08.775Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T10:29:10.369Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T10:29:37.848Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T10:29:40.568Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T10:59:36.037Z"}
+{"level":"info","message":"Error in connectionConnectionError: Failed to connect to recruitmentserver.database.windows.net:1433 in 15000ms","timestamp":"2017-02-22T10:59:51.605Z"}

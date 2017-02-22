@@ -22,6 +22,10 @@
                '</b></p><p>Password: <b>'+Password+'</b></p></div>'+
                 '<br/><br/><p><b>Note:-</b>This is an auto genereted mail, please do not reply.</p><p>Kind Regards,<br/> TBIT Recruitment</p>');
                break;
+			  case 'S':
+				var subject = 'Candidate ' + Name + ' has submitted test for evaluation';
+				var content = new helper.Content('text/html','Dear admin, Candidate ' + Name + ' has submitted the test. Please get it evaluated from panelist');
+				break;
         }
 
          var mail = new helper.Mail(from_email, subject, to_email, content);

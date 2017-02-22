@@ -61,6 +61,7 @@ module.exports = function(app,testrouter,id,pw){
               submit.done(recordset,id,function(TestComplete){
                   if(TestComplete != 0){
                     console.log(TestComplete);
+					mailer('TBIT-Recruitment@danskeit.co.in','','S',id);
                     response.json({Status:"submitted"});
                   }
                   else{response.json({Status:"Test not submitted1"});}
