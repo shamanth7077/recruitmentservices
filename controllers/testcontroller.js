@@ -1,6 +1,7 @@
 var test = require('../services/test');
 var bodyParser = require('body-parser');
 var submit = require('../services/submit');
+var mailer = require('../services/mailer');
 
 var jsonParser = bodyParser.urlencoded({extended:true});
 var simpleparser = bodyParser.json();
@@ -49,6 +50,7 @@ module.exports = function(app,testrouter,id,pw){
       submit.getCandidateId(id, function(recordset){
         var ctr=0;
         if (recordset.length != 0 && recordset[0].Status == 1){
+          console.log(request.body);
           console.log(request.body.Answers.length);
           for(i=0;i<request.body.Answers.length;i++){
             var result = submit.submitAnswer(request.body.Answers[i],recordset);
@@ -61,7 +63,7 @@ module.exports = function(app,testrouter,id,pw){
               submit.done(recordset,id,function(TestComplete){
                   if(TestComplete != 0){
                     console.log(TestComplete);
-					mailer('TBIT-Recruitment@danskeit.co.in','','S',id);
+					          mailer('TBIT-Recruitment@danskeit.co.in','','S',id);
                     response.json({Status:"submitted"});
                   }
                   else{response.json({Status:"Test not submitted1"});}

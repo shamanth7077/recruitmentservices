@@ -1,5 +1,6 @@
  var helper = require('sendgrid').mail;
  var config = require('../config.js');
+ var logger = require('../logger.js');
 
   module.exports = function(Email, Password,User,Name){
          var from_email = new helper.Email('DoNotReply@danskeit.co.in');
@@ -22,10 +23,11 @@
                '</b></p><p>Password: <b>'+Password+'</b></p></div>'+
                 '<br/><br/><p><b>Note:-</b>This is an auto genereted mail, please do not reply.</p><p>Kind Regards,<br/> TBIT Recruitment</p>');
                break;
-			  case 'S':
-				var subject = 'Candidate ' + Name + ' has submitted test for evaluation';
-				var content = new helper.Content('text/html','Dear admin, Candidate ' + Name + ' has submitted the test. Please get it evaluated from panelist');
-				break;
+    			  case 'S':
+    				var subject = 'Candidate ' + Name + ' has submitted test for evaluation';
+    				var content = new helper.Content('text/html','<p>Dear admin,</p><br/><p>Candidate ' + Name + ' has submitted the test. Please get it evaluated from panelist</p>'+
+                                             '<br/><br/><p><b>Note:-</b>This is an auto genereted mail, please do not reply.</p><p>Kind Regards,<br/> TBIT Recruitment</p>');
+    				break;
         }
 
          var mail = new helper.Mail(from_email, subject, to_email, content);

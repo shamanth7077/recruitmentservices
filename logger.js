@@ -1,4 +1,5 @@
 var winston = require('winston');
+var moment = require('moment');
 
 exports.error = function(err){
 
@@ -13,10 +14,11 @@ logger.error(err);
 }
 
 exports.info = function(info){
-
+  var date = new Date();
+  date = moment(date).format("YYYY-MM-DD");
 var logger = new (winston.Logger)({
   transports: [
-    new(winston.transports.File)({ filename: 'servicelog.txt'})
+    new(winston.transports.File)({ filename: date+'.txt'})
   ]
 });
 

@@ -22,7 +22,7 @@ module.exports = function(app,recruitmentrouter){
     res.status(200).json('Your our now connected to the server.')
   });
   recruitmentrouter.get('/logs',function(req,res){
-    fs.readFile("./servicelog.txt","utf8",function(err,data){
+    fs.readFile("./"+req.query.Date+".txt","utf8",function(err,data){
       if(err){
         console.log(err);
       }

@@ -44,10 +44,10 @@ exports.submitAnswer = function(Answers,recordset){
           console.log(err);
         }
         else{
-            result = rowcount;
+            result = rowcount; 
         }
         ps.unprepare(function(err) {
-          if(err){
+          if(err){ 
             console.log(err);
           }
         });
