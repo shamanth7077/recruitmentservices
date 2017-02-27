@@ -10,7 +10,7 @@ server: 'recruitmentserver.database.windows.net',
   options: {
 	  encrypt: true,
 	  database: 'recruitmentDB'
-
+  }
 };
 }
 

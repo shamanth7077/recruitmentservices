@@ -101,3 +101,6 @@
 {"level":"info","message":"Connection Success!!","timestamp":"2017-02-27T09:56:40.375Z"}
 {"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-27T10:00:44.486Z"}
 {"level":"info","message":"Connection Success!!","timestamp":"2017-02-27T10:00:46.084Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-27T10:29:14.259Z"}
+{"level":"info","message":"Error in connectionConnectionError: Failed to connect to recruitmentserver.database.windows.net:1433 in 15000ms","timestamp":"2017-02-27T10:29:32.861Z"}
+{"level":"info","message":"Inside Skill","timestamp":"2017-02-27T10:29:45.606Z"}
