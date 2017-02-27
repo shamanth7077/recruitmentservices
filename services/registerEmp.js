@@ -24,11 +24,12 @@ exports.getEmployeeRegistered = function(emailId,callback){
     exports.registerEmployee = function(body,key,callback){
         console.log(body);
           var ps = new sql.PreparedStatement();
+
           ps.input('Name',sql.NVarChar)
           ps.input('Email',sql.NVarChar)
           ps.input('Skill',sql.NVarChar)
-          ps.input('Role',sql.NVarChar)
-          ps.prepare('insert into UserList values'+' (@Name,@Email,@Skill,@Role)',
+          ps.input('Role',sql.NChar(10))
+          ps.prepare('insert into UserList values'+' (@Name,@Email,@Role,@Skill)',
                       function(err){
                         ps.execute({Name:body.Name,Email:body.Email,
                                     Skill:body.Skill,

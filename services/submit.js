@@ -1,5 +1,8 @@
 var sql = require('mssql');
 var config = require('../config.js');
+var logger = require('../logger');
+
+
 
 exports.getCandidateId = function(id,callback){
     var ps = new sql.PreparedStatement();
@@ -23,8 +26,8 @@ exports.getCandidateId = function(id,callback){
       })
     });
 }
-exports.submitAnswer = function(Answers,recordset){
-    var result = '';
+exports.submitAnswer = function(Answers,recordset,callback){
+
     console.log(Answers);
     var ps = new sql.PreparedStatement();
     ps.input('q',sql.VarChar)
@@ -39,21 +42,24 @@ exports.submitAnswer = function(Answers,recordset){
       }
       console.log(Answers.ID,recordset[0].ID,Answers.Answer,Answers.Questions);
       ps.execute({q:Answers.Questions,q_id:Answers.ID,cid:recordset[0].ID,ans:Answers.Answer,stat:null}, function(err,recordset,rowcount){
-
+        var result = 0;
         if(err){
+          logger.error(err);
           console.log(err);
+          result=0;
+          callback(result);
         }
         else{
             result = rowcount; 
+            callback(result);
         }
         ps.unprepare(function(err) {
-          if(err){ 
+          if(err){
             console.log(err);
           }
         });
       })
     });
-    return result;
 }
 
 exports.done = function(recordset,id,callback){

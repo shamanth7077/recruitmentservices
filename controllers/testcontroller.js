@@ -34,14 +34,16 @@ module.exports = function(app,testrouter,id,pw){
         if (recordset.length != 0 && recordset[0].Status == 1){
           console.log(request.body);
           console.log(request.body.Answers.length);
+          console.log(recordset, recordset[0]);
           for(i=0;i<request.body.Answers.length;i++){
-            var result = submit.submitAnswer(request.body.Answers[i],recordset);
-            console.log(result);
-            if (result != 0 || result != null){
+            submit.submitAnswer(request.body.Answers[i],recordset,function(result){
+            console.log(result +' :result');
+            if (result != 0){
               ctr=i;
             }
-            console.log(ctr);
-            if(ctr == request.body.Answers.length - 1){
+          })
+          }
+            console.log(ctr +': counter');
               submit.done(recordset,id,function(TestComplete){
                   if(TestComplete != 0){
                     console.log(TestComplete);
@@ -49,9 +51,7 @@ module.exports = function(app,testrouter,id,pw){
                     response.json({Status:"submitted"});
                   }
                   else{response.json({Status:"Test not submitted1"});}
-                });
-            }
-          }
+                });            
         }
         else{
           response.json({Status:"Already Taken"});

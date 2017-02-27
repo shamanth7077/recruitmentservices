@@ -3,6 +3,7 @@ var logincontroller = require('./controllers/logincontroller');
 var homecontroller = require('./controllers/homecontroller');
 var candidatecontroller = require('./controllers/candidatecontroller');
 var employeecontroller = require('./controllers/employeecontroller');
+var cleanupcontroller = require('./controllers/cleanupcontroller');
 var authmiddleware = require('./middleware/tokenValidation');
 var randomstring = require('randomstring');
 var expressJWT = require('express-jwt');
@@ -15,6 +16,7 @@ module.exports.getRoutes = function(app){
   var employeerouter = express.Router();
   var loginrouter = express.Router();
   var canauthrouter = express.Router();
+  var cleanuprouter = express.Router();
 
   app.use('/dbsecure-can',canauthrouter);
 
@@ -25,9 +27,11 @@ module.exports.getRoutes = function(app){
   app.use('/candidate', candidaterouter);
   app.use('/employee', employeerouter);
   app.use('/Login', loginrouter);
+  app.use('/cleanup', cleanuprouter);
 
   homecontroller(app, router);
   candidatecontroller(app,candidaterouter);
   employeecontroller(app,employeerouter);
   logincontroller(app,loginrouter);
+  cleanupcontroller(app,cleanuprouter);
 }
