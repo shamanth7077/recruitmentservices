@@ -10,7 +10,7 @@
            case 'C':
              var subject = 'Login credentials for DIT test portal';
              var content = new helper.Content('text/html','<p>Dear '+Name+',</p><br/><div><p>You have successfully registered for the' +
-             ' test</p><p>Please <a href="http://dbrecruitmentapp.azurewebsites.net/">click here</a> and login with the'+
+             ' test</p><p>Please <a href="http://dbrecruitmentapp.azurewebsites.net/#/testlogin">click here</a> and login with the'+
              ' credentials mentioned below:</p><p>Username: <b>'+Email+
              '</b></p><p>Password: <b>'+Password+'</b></p></div>'+
               '<br/><br/><p><b>Note:-</b>This is an auto genereted mail, please do not reply.</p><p>Kind Regards,<br/> TBIT Recruitment</p>');

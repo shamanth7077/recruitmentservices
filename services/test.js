@@ -65,7 +65,7 @@ exports.GetQuestionSet = function(rec1,inRec,callback){
   ps.input('level', sql.Int)
   ps.prepare('Select ID,Questions from Question Where Level = @level and Skill = @skill',
               function(err){
-                ps.execute({skill:rec1.Skill,level:inRec.ID},
+                ps.execute({skill:rec1.Skill,level:inRec},
                   function(err,finalrecord){
                     ps.unprepare(function(err) {
 

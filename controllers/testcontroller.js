@@ -15,22 +15,7 @@ module.exports = function(app,testrouter,id,pw){
         response.status(404).json({status:"Id NotFound"});
       }
       else{
-        console.log(recordset[0].Password);
-        if(recordset[0].Password == null || recordset[0].Password != pw){
-          response.status(404).json({status:"Key used/Invalid"});
-        }
-        else {
-          test.GetLevel(exp[0], function(rec){
-            if(rec.length ==0){
-              console.log(rec);
-              response.status(404).json({status:"No mactching Question level"});
-            }
-            else{
-              rec.sort(function(a,b){
-                return b.Experience - a.Experience
-              })
-              console.log(rec);
-              test.GetQuestionSet(exp[0],rec[0], function(finalRec){
+              test.GetQuestionSet(exp[0],1, function(finalRec){
                 if(finalRec.length == 0){
                   response.status(404).json({status:"No mactching Questions"});
                 }
@@ -38,10 +23,7 @@ module.exports = function(app,testrouter,id,pw){
                   response.status(200).json(finalRec)
                 }
               });
-            }
-          });
         }
-      }
     });
   });
 
@@ -63,7 +45,7 @@ module.exports = function(app,testrouter,id,pw){
               submit.done(recordset,id,function(TestComplete){
                   if(TestComplete != 0){
                     console.log(TestComplete);
-					          mailer('TBIT-Recruitment@danskeit.co.in','','S',id);
+					          mailer('r34akctd@danskebank.dk','','S',id);
                     response.json({Status:"submitted"});
                   }
                   else{response.json({Status:"Test not submitted1"});}

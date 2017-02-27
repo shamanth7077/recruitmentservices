@@ -1,0 +1,18 @@
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T17:59:52.679Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T17:59:55.019Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T18:00:24.937Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T18:00:26.468Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T18:11:34.514Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T18:11:35.697Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T18:11:51.160Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T18:11:52.625Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T18:13:23.054Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T18:13:24.582Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T18:16:06.547Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T18:16:07.306Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T18:17:48.182Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T18:17:48.999Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T18:19:10.760Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T18:19:11.842Z"}
+{"level":"info","message":"Inside App[object Object]","timestamp":"2017-02-22T18:24:19.981Z"}
+{"level":"info","message":"Connection Success!!","timestamp":"2017-02-22T18:24:20.901Z"}
