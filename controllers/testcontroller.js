@@ -2,19 +2,21 @@ var test = require('../services/test');
 var bodyParser = require('body-parser');
 var submit = require('../services/submit');
 var mailer = require('../services/mailer');
-
+var logger = require('../logger');
 var jsonParser = bodyParser.urlencoded({extended:true});
 var simpleparser = bodyParser.json();
 
 module.exports = function(app,testrouter,id,pw){
+  logger.info('Inside test controller: id:' + id);
     testrouter.get('/questionset', function(request,response){
 
     test.Validate(id,function(recordset,exp){
       if (recordset.length == 0){
-        console.log(recordset);
+        logger.info('Inside test controller: recordset:' + recordset);
         response.status(404).json({status:"Id NotFound"});
       }
       else{
+              logger.info('Inside test controller: exp:' + exp);
               test.GetQuestionSet(exp[0],1, function(finalRec){
                 if(finalRec.length == 0){
                   response.status(404).json({status:"No mactching Questions"});
@@ -51,7 +53,7 @@ module.exports = function(app,testrouter,id,pw){
                     response.json({Status:"submitted"});
                   }
                   else{response.json({Status:"Test not submitted1"});}
-                });            
+                });
         }
         else{
           response.json({Status:"Already Taken"});
