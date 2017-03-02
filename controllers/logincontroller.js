@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var randomstring = require('randomstring');
 var login = require('../services/login');
 var getSecret = require('../services/key');
+var logger = require('../logger');
 
 
 var jsonParser = bodyParser.urlencoded({extended:true});
@@ -32,6 +33,7 @@ module.exports = function(app,loginrouter){
                 var auth = jwt.sign(userObj,process.env.SECRET_KEY,{
                   expiresIn: 5200
                 });
+                logger.info('Token Generated: ' + auth);
                 response.status(200).json({Token:auth});
             });
           }
