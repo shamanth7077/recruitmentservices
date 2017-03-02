@@ -1,8 +1,9 @@
 var sql = require('mssql');
 var config = require('../config.js');
+var logger = require('../logger');
 
 exports.Validate = function(id,callback){
-console.log(id)
+logger.info('ID received: ' + id);
 var ps = new sql.PreparedStatement();
 ps.input('email',sql.VarChar)
 ps.prepare('select Email, Password from Authentication where Email = @email',
@@ -13,13 +14,14 @@ ps.prepare('select Email, Password from Authentication where Email = @email',
 
                         });
                         if(err != null){
-                          console.log(err.message + ' Validate');
+                          logger.info('Validate: ' + err);
                         }
                         else {
                           var ps1 = new sql.PreparedStatement();
                           ps1.input('email',sql.VarChar)
                           ps1.prepare('select Email,Experience,Skill,Status from Candidate where Email = @email',function(err){
                             ps1.execute({email: id}, function(err,rec1){
+                              logger.info('email: ' + id);
                               ps1.unprepare(function(err) {
 
                               });
@@ -60,6 +62,7 @@ exports.GetLevel = function(inRec,callback){
 }
 
 exports.GetQuestionSet = function(rec1,inRec,callback){
+  logger.info('Input for GetQuestion: ' + rec1.Skill + 'Level:' + inRec);
   var ps = new sql.PreparedStatement();
   ps.input('skill', sql.VarChar)
   ps.input('level', sql.Int)

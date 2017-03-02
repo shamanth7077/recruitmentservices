@@ -4,7 +4,7 @@ var evaluationcontroller = require('../controllers/evaluationController');
 var testcontroller = require('../controllers/testcontroller');
 var evalsummarycontroller = require('../controllers/evalsummarycontroller');
 var getSecret = require('../services/key');
-var logger = require('../logger')
+var logger = require('../logger');
 
 module.exports = function(app,canauthrouter){
 
