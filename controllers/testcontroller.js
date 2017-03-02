@@ -11,12 +11,13 @@ module.exports = function(app,testrouter,id,pw){
     testrouter.get('/questionset', function(request,response){
 
     test.Validate(id,function(recordset,exp){
+      logger.info('Inside test controller: recordset:' + recordset);
       if (recordset.length == 0){
         logger.info('Inside test controller: recordset:' + recordset);
         response.status(404).json({status:"Id NotFound"});
       }
       else{
-              logger.info('Inside test controller: exp:' + exp[0] + exp[1]);
+              logger.info('Inside test controller: exp:' + exp[0].Skill + exp[0].Email);
               test.GetQuestionSet(exp[0],1, function(finalRec){
                 if(finalRec.length == 0){
                   response.status(404).json({status:"No mactching Questions"});
