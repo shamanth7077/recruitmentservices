@@ -16,7 +16,7 @@ module.exports = function(app,testrouter,id,pw){
         response.status(404).json({status:"Id NotFound"});
       }
       else{
-              logger.info('Inside test controller: exp:' + exp);
+              logger.info('Inside test controller: exp:' + exp[0] + exp[1]);
               test.GetQuestionSet(exp[0],1, function(finalRec){
                 if(finalRec.length == 0){
                   response.status(404).json({status:"No mactching Questions"});
