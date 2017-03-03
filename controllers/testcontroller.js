@@ -10,9 +10,8 @@ module.exports = function(app,testrouter,id,pw){
   logger.info('Inside test controller: id:' + id);
 
     testrouter.get('/questionset', function(request,response){
-
+      logger.info('Inside questionset: id:' + id);
     test.Validate(id,function(recordset,exp){
-
       if (recordset.length == 0){
         response.status(404).json({status:"Id NotFound"});
       }
