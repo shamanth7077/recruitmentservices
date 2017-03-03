@@ -8,9 +8,10 @@ var simpleparser = bodyParser.json();
 
 module.exports = function(app,testrouter,id,pw){
   logger.info('Inside test controller: id:' + id);
+    var userid = id;
     testrouter.get('/questionset', function(request,response){
 
-    test.Validate(id,function(recordset,exp){
+    test.Validate(userid,function(recordset,exp){
       logger.info('Inside test controller: recordset:' + recordset);
       if (recordset.length == 0){
         logger.info('Inside test controller: recordset:' + recordset);
