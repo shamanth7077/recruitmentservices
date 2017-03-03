@@ -12,7 +12,7 @@ module.exports = function(app,testrouter,id,pw){
     testrouter.get('/questionset', function(request,response){
 
     test.Validate(userid,function(recordset,exp){
-      logger.info('Inside test controller: recordset:' + recordset);
+      logger.info('Inside test controller: recordset:' + recordset.length + "," + userid);
       if (recordset.length == 0){
         logger.info('Inside test controller: recordset:' + recordset);
         response.status(404).json({status:"Id NotFound"});
