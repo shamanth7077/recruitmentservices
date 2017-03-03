@@ -28,8 +28,8 @@ module.exports = function(app,testrouter,id,pw){
   });
 
   testrouter.post('/submit', simpleparser, function(request,response){
-    console.log(id,pw);
-      submit.getCandidateId(id, function(recordset){
+    var userid = request.app.locals.id;
+      submit.getCandidateId(userid, function(recordset){
         var ctr=0;
         if (recordset.length != 0 && recordset[0].Status == 1){
           console.log(request.body);
@@ -44,10 +44,9 @@ module.exports = function(app,testrouter,id,pw){
           })
           }
             console.log(ctr +': counter');
-              submit.done(recordset,id,function(TestComplete){
+              submit.done(recordset,userid,function(TestComplete){
                   if(TestComplete != 0){
-                    console.log(TestComplete);
-					          mailer('r34akctd@danskebank.dk','','S',id);
+					          mailer('r34akctd@danskebank.dk','','S',userid);
                     response.json({Status:"submitted"});
                   }
                   else{response.json({Status:"Test not submitted1"});}
