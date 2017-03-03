@@ -7,10 +7,8 @@ var jsonParser = bodyParser.urlencoded({extended:true});
 var simpleparser = bodyParser.json();
 
 module.exports = function(app,testrouter,id,pw){
-  logger.info('Inside test controller: id:' + id);
   app.locals.id = id;
     testrouter.get('/questionset', function(request,response){
-      logger.info('Inside questionset: id:' + request.app.locals.id);
       var userid = request.app.locals.id;
     test.Validate(userid,function(recordset,exp){
       if (recordset.length == 0){

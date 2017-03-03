@@ -3,7 +3,6 @@ var config = require('../config.js');
 var logger = require('../logger');
 
 exports.Validate = function(id,callback){
-logger.info('ID received: ' + id);
 var ps = new sql.PreparedStatement();
 ps.input('email',sql.VarChar)
 ps.prepare('select Email, Password from Authentication where Email = @email',
@@ -21,7 +20,6 @@ ps.prepare('select Email, Password from Authentication where Email = @email',
                           ps1.input('email',sql.VarChar)
                           ps1.prepare('select Email,Experience,Skill,Status from Candidate where Email = @email',function(err){
                             ps1.execute({email: id}, function(err,rec1){
-                              logger.info('email: ' + id);
                               ps1.unprepare(function(err) {
 
                               });
