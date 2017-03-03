@@ -24,7 +24,8 @@ module.exports = function(app,canauthrouter){
                 var URL = String(request.url).split('=');
 
                 if((request.url=='/submit' || request.url=='/questionset') && decode.Auth_Level == 10){
-                  rem1(decode.Email,decode.Password);
+                  logger.info('calling questionset');
+//                  rem1(decode.Email,decode.Password);
                   next();
                 }
                 else if(((URL[0])=='/answers?Email' || request.url=='/submiteval' || request.url=='/saveeval' || request.url=='/summary') && (decode.Auth_Level == 30 || decode.Auth_Level == 20)){
