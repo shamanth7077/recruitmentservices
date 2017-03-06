@@ -49,7 +49,7 @@ module.exports = function(app,testrouter,id,pw){
     var userid = request.app.locals.id;
     var ctr=0;
       submit.getCandidateId(userid, function(recordset){
-        if (recordset.length != 0){
+        if (recordset.length != 0 && recordset[0].Status == 1){
           logger.info(request.body);
           logger.info(request.body.Answers.length);
           logger.info(recordset, recordset[0]);
@@ -58,23 +58,18 @@ module.exports = function(app,testrouter,id,pw){
             console.log(result +' :result');
             if (result != 0){
               ctr +=result;
-
-                if(ctr === request.body.Answers.length)
+                if(ctr == request.body.Answers.length)
                 {
-                  console.log(ctr);
-                  console.log(request.body.Answers.length);
-                    submit.done(recordset,userid,function(TestComplete){
-                        if(TestComplete != 0){
-      					          mailer('kuro@danskeit.co.in','','S',userid);
-                          console.log('maildone');
-                          response.json({Status:"submitted"});
-                        }
-                        else{
-                          response.json({Status:"Test not submitted1"});
+                  submit.done(recordset,userid,function(TestComplete){
+                      if(TestComplete != 0){
+    					          mailer('kuro@danskeit.co.in','','S',userid);
+                        console.log('maildone');
+                        response.json({Status:"submitted"});
                       }
+                      else{response.json({Status:"Test not submitted1"});}
                     });
                 }
-              }
+            }
           });
           }
         }
