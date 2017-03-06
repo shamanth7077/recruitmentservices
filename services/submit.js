@@ -50,7 +50,7 @@ exports.submitAnswer = function(Answers,recordset,callback){
           callback(result);
         }
         else{
-            result = rowcount; 
+            result = rowcount;
             callback(result);
         }
         ps.unprepare(function(err) {
@@ -77,22 +77,7 @@ exports.done = function(recordset,id,callback){
       }
       else {
         if(commit !=0){
-          var ps2 =  new sql.PreparedStatement();
-          ps2.input('email',sql.VarChar)
-          ps2.input('pswrd',sql.VarChar)
-          ps2.prepare('Update Authentication Set Password = @pswrd where Email = @email', function(err){
-            ps2.execute({pswrd:null,email:id}, function(err,rec,update){
-              ps2.unprepare(function(err) {
-
-              });
-              if(err != null){
-                console.log(err +'Update');
-              }
-              else{
-                callback(update);
-              }
-            })
-          })
+          callback(commit);
         }
       }
     })
