@@ -58,7 +58,7 @@ module.exports = function(app,testrouter,id,pw){
             console.log(result +' :result');
             if (result != 0){
               ctr +=result;
-                if(count == request.body.Answers.length - 1)
+                if(ctr == request.body.Answers.length - 1)
                 {
                   submit.done(recordset,userid,function(TestComplete){
                       if(TestComplete != 0){
@@ -68,9 +68,6 @@ module.exports = function(app,testrouter,id,pw){
                       else{response.json({Status:"Test not submitted1"});}
                     });
                 }
-            }
-            else{
-                response.status(501).json('Server Error');
             }
           });
           }
