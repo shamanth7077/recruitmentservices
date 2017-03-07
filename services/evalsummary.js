@@ -15,7 +15,38 @@ exports.getCandidateInfo = function(query,callback){
           console.log('inside for');
           console.log(typeof recordset[i].Registration_Date);
           console.log(recordset[i].Registration_Date);
-          recordset[i].Registration_Date = JSON.stringify(recordset[i].Registration_Date).replace('"',"").split("T")[0];
+          recordset[i].Registration_Date = JSON.stringify(recordset[i].Registration_Date).replace("'","").split("T")[0];
+          switch(recordset[i].Status){
+            case 1:
+            recordset[i].Status = "Profile Received";
+            break;
+            case 2:
+            recordset[i].Status = "Test Pending";
+            break;
+            case 3:
+            recordset[i].Status = "Test Completed";
+            break;
+            case 4:
+            recordset[i].Status = "Test Evaluated";
+            break;
+            case 5:
+            recordset[i].Status = "Tech Completed";
+            break;
+            case 6:
+            recordset[i].Status = "Vertical Completed";
+            break;
+            case 7:
+            recordset[i].Status = "Selected";
+            break;
+            case 8:
+            recordset[i].Status = "Rejected";
+            break;
+            case 9:
+            recordset[i].Status = "On Hold";
+            break;
+            case 10:
+            recordset[i].Status = "Offered";
+          }
           console.log(recordset[i].Registration_Date);
           console.log(i);
           if(i === recordset.length -1){
