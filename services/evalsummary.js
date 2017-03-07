@@ -15,7 +15,7 @@ exports.getCandidateInfo = function(query,callback){
           console.log('inside for');
           console.log(typeof recordset[i].Registration_Date);
           console.log(recordset[i].Registration_Date);
-          recordset[i].Registration_Date = JSON.stringify(recordset[i].Registration_Date).replace("'","").split("T")[0];
+          recordset[i].Registration_Date = JSON.stringify(recordset[i].Registration_Date).replace('"',"").split("T")[0];
           switch(recordset[i].Status){
             case 1:
             recordset[i].Status = "Profile Received";
