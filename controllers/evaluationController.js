@@ -27,11 +27,11 @@ module.exports = function(app,evaluationrouter){
   evaluationrouter.post('/submiteval',jsonParser,function(request,response){
     var count = 0
     for(var i=0;i<request.body.Evaluation.length; i++){
-
+      console.log(request.body);
       eval.submitEvaluation(request.body.Candidate_ID,request.body.Evaluation[i],function(result){
         if(result != 0){
           count += result;
-          if(count == request.body.Evaluation.length - 1){
+          if(count === request.body.Evaluation.length){
               eval.Score(request.body.Candidate_ID,request.body.Score,function(res){
                 if(res != 0){
                   response.status(200).json({"Status":"Evaluated"});
@@ -42,9 +42,7 @@ module.exports = function(app,evaluationrouter){
               });
           }
         }
-        else{
-            response.status(500).json('Server Error');
-        }
+        
       });
     }
   });

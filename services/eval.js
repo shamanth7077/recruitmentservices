@@ -8,9 +8,13 @@ exports.submitEvaluation = function(Candidate_ID,body,callback){
     ps.input('stat',sql.VarChar)
 
     ps.prepare('Update Test Set Status = @stat where Candidate_ID=@cid and Question_ID=@q_id',function(err){
-      console.log(body.Question_Id + ' id')
-      ps.execute({q_id:body.Question_Id,cid:Candidate_ID,stat:body.Status}, function(err,recordset,rowcount){
-
+      console.log(Candidate_ID);
+      ps.execute({q_id:body.QuestionID,cid:Candidate_ID,stat:body.Status}, function(err,recordset,rowcount){
+        ps.unprepare(function(err) {
+          if(err){
+            console.log(err);
+          }
+          });
         if(err != null){
           console.log(err +' 678');
         }
@@ -18,11 +22,7 @@ exports.submitEvaluation = function(Candidate_ID,body,callback){
           console.log(rowcount + ' rowcount');
           callback(rowcount);
         }
-        ps.unprepare(function(err) {
-          if(err){
-            console.log(err);
-          }
-        });
+
       })
     });
 }
