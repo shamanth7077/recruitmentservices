@@ -62,7 +62,7 @@ module.exports = function(app,testrouter,id,pw){
                 {
                   submit.done(recordset,userid,function(TestComplete){
                       if(TestComplete != 0){
-    					          mailer('kuro@danskeit.co.in','','S',userid);
+    					          mailer('r34akctd@danskebank.dk','','S',userid);
                         console.log('maildone');
                         response.json({Status:"submitted"});
                       }
