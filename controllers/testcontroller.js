@@ -26,7 +26,7 @@ module.exports = function(app,testrouter,id,pw){
         else {
               test.GetQuestionSet(exp[0],1, function(finalRec){
                 if(finalRec.length == 0){
-                  response.status(404).json({status:"No mactching Questions"});
+                  response.status(404).json({status:"No matching Questions"});
                 }
                 else{
                   test.removePassword(userid,function(update){

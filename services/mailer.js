@@ -8,7 +8,7 @@
 
          switch(User){
            case 'C':
-             var subject = 'Login credentials for DIT test portal';
+             var subject = 'Login credentials for Danske IT test portal';
              var content = new helper.Content('text/html','<p>Dear '+Name+',</p><br/><div><p>You have successfully registered for the' +
              ' test</p><p>Please <a href="http://dbrecruitmentapp.azurewebsites.net/#/testlogin">click here</a> and login with the'+
              ' credentials mentioned below:</p><p>Username: <b>'+Email+
